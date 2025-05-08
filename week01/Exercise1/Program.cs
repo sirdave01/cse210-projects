@@ -11,6 +11,9 @@ class Program
         Console.WriteLine("Hello World! This is the Exercise1 Project.");
 
         // this statement is my first program that requests for a user's name and last name
+        // this statement used console.write to avoid breaking into a newline for response
+        // We also use camel casing for the variable names
+        // you don't write the question in a readline method, you write it in a write method
 
         Console.Write("What is your name? ");
         string firstName = Console.ReadLine();
