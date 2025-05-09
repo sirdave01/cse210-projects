@@ -14,7 +14,7 @@ class Program
 
         int SquaresNumber = SquareNumber(UserNumber); // Call the method to square the number
 
-        DisplayResult(UserNumber + SquaresNumber); // Call the method to display the result
+        DisplayResult(UserName, SquaresNumber); // Call the method to display the result
 
 
         // this line of code is used to create a method that displays a message
@@ -46,8 +46,8 @@ class Program
         return number * number;
     }
     // this line of code is used to create a method that displays the result
-    static void DisplayResult(int result)
+    static void DisplayResult(string fName, int result)
     {
-        Console.WriteLine($"The result is: {result}");
+        Console.WriteLine($"Your name is {fName} and the result is {result}");
     }
 }
