@@ -48,6 +48,6 @@ class Program
     // this line of code is used to create a method that displays the result
     static void DisplayResult(string fName, int result)
     {
-        Console.WriteLine($"Your name is {fName} and the result is {result}");
+        Console.WriteLine($"Your name is {fName}, and the result is {result}");
     }
 }
