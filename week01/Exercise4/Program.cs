@@ -54,5 +54,31 @@ class Program
         // this line of code is used to calculate the average of the numbers in the list
         double average = (double)sum / numbers.Count;
         Console.WriteLine($"The average of the numbers is: {average}");
+
+        // this line of code is used to find the maximum number in the list
+        int max = numbers[0];
+        foreach (int number in numbers)
+        {
+            if (number > max)
+            {
+                max = number;
+            }
+        }
+        Console.WriteLine($"The maximum number is: {max}");
+
+        // this line of code is used to find the minimum number in the list
+        int min = numbers[0];
+        foreach (int number in numbers)
+        {
+            if (number < min)
+            {
+                min = number;
+            }
+        }
+        Console.WriteLine($"The minimum number is: {min}");
+
+        // this line of code is used to find the count of numbers in the list
+        int count = numbers.Count;
+        Console.WriteLine($"The count of numbers is: {count}");
     }
 }
