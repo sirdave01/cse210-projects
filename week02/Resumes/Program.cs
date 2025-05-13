@@ -10,7 +10,7 @@ class Program
         job1._startYear = 2015;
         job1._endYear = 2020;
 
-        Console.WriteLine($"{job1._jobTitle} at ({job1._company}) {job1._startYear} - {job1._endYear}");
+        // Console.WriteLine($"{job1._jobTitle} at ({job1._company}) {job1._startYear} - {job1._endYear}");
 
         Job job2 = new Job();
         job2._jobTitle = "Project Manager";
@@ -18,8 +18,28 @@ class Program
         job2._startYear = 2018;
         job2._endYear = 2023;
 
-        Console.WriteLine($"{job2._jobTitle} at ({job2._company}) {job2._startYear} - {job2._endYear}");
+        // Console.WriteLine($"{job2._jobTitle} at ({job2._company}) {job2._startYear} - {job2._endYear}");
 
-        // Console.WriteLine("Hello World! This is the Resumes Project.");
+        // this line of code is used to create a new instance of the Resume class
+
+        Resume resume = new Resume();
+        resume._name = "John Doe";
+
+        // this line of code is used to add the job1 and job2 objects to the _jobs list in the Resume class
+        resume._jobs.Add(job1);
+        resume._jobs.Add(job2);
+
+        // this line of code is used to display the resume information
+        resume.DisplayResume();
+
+        // Console.WriteLine($"Name: {resume._name}");
+        // Console.WriteLine("Jobs:");
+
+        // // this line of code is used to create a method that displays the resume information
+        // foreach (Job job in _jobs)
+        // {
+        //     job.DisplayJob();
+        // }
     }
+
 }
