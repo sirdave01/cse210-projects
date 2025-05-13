@@ -21,7 +21,7 @@ public class Job
 
     // this line of code is used to create a constructor that takes in the parameters jobTitle, company, startYear, and endYear
     // public Job(string jobTitle, string company, int startYear, int endYear)
-    
+
     // Job job = new Job("Software Engineer", "Tech Corp", 2015, 2020);
 
     // this line of code is used to create a method that displays the job information
