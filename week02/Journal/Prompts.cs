@@ -1,4 +1,4 @@
-using system;
+using System;
 using System.Collections.Generic;
 
 // this line of code creates the Prompts class
@@ -12,11 +12,21 @@ public class Prompts
         "What are you grateful for?",
         "What did you learn today?",
         "What was the most challenging part of your day?",
-        "What are your goals for tomorrow?"
+        "What are your goals for tomorrow?",
         "Is there anything you would like to change about your day?",
         "What is something you are looking forward to?",
         "What is something you wish you could do differently?",
     };
+
+    // these lines of code creates the prompts method that returns a random prompt from the list
+
+    private Random random = new Random();
+
+    public string GetRandomPrompt()
+    {
+        int index = random.Next(prompts.Count);
+        return prompts[index];
+    }
 
     // // this line of code creates the prompts constructor that initializes the prompts list
     // public Prompts()

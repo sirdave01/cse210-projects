@@ -14,7 +14,7 @@ class Program
         // These lines of code creates the journal menu as a list to choose from
         while (true)
         {
-            console.WriteLine("Welcome to the Journal Menu!");
+            Console.WriteLine("Welcome to the Journal Menu!");
             Console.WriteLine("1. Add Entry");
             Console.WriteLine("2. Remove Entry");
             Console.WriteLine("3. Display Entries");
@@ -36,23 +36,35 @@ class Program
 
                 switch (option)
                 {
+                    // these lines of code creates the random prompt and entry text
                     case 1:
-                        Console.WriteLine("Enter your entry text: ");
+                        string prompt = prompts.GetRandomPrompt();
+                        Console.WriteLine(prompt);
                         string entryText = Console.ReadLine();
-                        Entry entry = new Entry(prompts.GetRandomPrompt(), entryText);
+                        Entry entry = new Entry(prompt, entryText);
                         journal.AddEntry(entry);
+                        Console.WriteLine("Entry added successfully!");
                         break;
+
+                    // these lines of code creates the remove entry method that removes an entry from the journal
+                    // and displays the journal information
+
                     case 2:
                         Console.WriteLine("Enter the index of the entry to remove: ");
                         int indexToRemove = int.Parse(Console.ReadLine());
                         journal.RemoveEntry(journal.Entries[indexToRemove]);
                         break;
+
+                    // these lines of code creates the display entries method that displays the journal information
                     case 3:
                         journal.DisplayEntries();
                         break;
+
+                    // these lines of code creates the load journal method that loads the journal from a csv, json file or database
+                    // and displays the journal information
                     case 4:
                         Console.WriteLine("Enter the file name to load the journal from: ");
-                        Console.WriteLine("1. cSV");
+                        Console.WriteLine("1. CSV");
                         Console.WriteLine("2. JSON");
                         Console.WriteLine("3. Database");
                         Console.WriteLine("Please select an option from the menu: ");
@@ -60,17 +72,20 @@ class Program
 
                         switch (loadSelection)
                         {
-                            case "1"
-                                journal.LoadEntriesFromCSV("journal.csv");
+                            case "1":
+                                journal.LoadJournalFromCSV("journal.csv");
                                 break;
                             case "2":
-                                journal.LoadEntriesFromJSON("journal.json");
+                                journal.LoadJournalFromJson("journal.json");
                                 break;
                             case "3":
-                                journal.LoadEntriesFromDatabase("connectionString");
+                                journal.LoadJournalFromDatabase("connectionString");
                                 break;
                         }
                         break;
+
+                    // these lines of code creates the save journal method that saves the journal to a csv, json file or database
+                    // and displays the journal information
                     case 5:
                         Console.WriteLine("Enter the file name to save the journal to: ");
                         string saveFileName = Console.ReadLine();

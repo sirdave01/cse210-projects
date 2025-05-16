@@ -1,6 +1,6 @@
 // these lines of code create the journal class and calls the entry and prompts classes
 
-using system;
+using System;
 
 using System.Collections.Generic;
 
@@ -34,7 +34,7 @@ public class Journal
     {
         Console.WriteLine("Journal Entries:");
 
-        foreach (Entry entry in entries)
+        foreach (Entry entry in Entries)
         {
             Console.WriteLine(entry.ToString());
         }
@@ -55,7 +55,7 @@ public class Journal
 
     // this line of code creates the load journal method that loads the journal from a csv file
 
-    public void LoadJournal(string fileName)
+    public void LoadJournalFromCSV(string fileName)
     {
         using (StreamReader reader = new StreamReader(fileName))
         {
@@ -91,7 +91,7 @@ public class Journal
 
     // these lines of code creates the save method that saves the journal to a database
 
-    public void SaveToDatabase(string connectionString)
+    public void SaveJournalToDatabase(string connectionString)
     {
         // Implement database saving logic here
         // This is a placeholder for the actual database code
@@ -101,7 +101,7 @@ public class Journal
 
     // these lines of code creates the load method that loads the journal from a database
 
-    public void LoadFromDatabase(string connectionString)
+    public void LoadJournalFromDatabase(string connectionString)
     {
         // Implement database loading logic here
         // This is a placeholder for the actual database code
