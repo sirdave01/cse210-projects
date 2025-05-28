@@ -35,7 +35,7 @@ public class Scripture
         }
     }
 
-    public string GetSCriptureText()
+    public string GetScriptureText()
     {
         return $"{_reference.GetReferenceText()} {string.Join(" ", _words.Select(word => word.GetWordText()))}"; // Return the scripture text with reference and words
     }

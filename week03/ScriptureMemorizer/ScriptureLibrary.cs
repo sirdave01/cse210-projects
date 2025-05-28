@@ -24,7 +24,7 @@ public class ScriptureLibrary
             var lines = File.ReadAllLines(filePath);
             foreach (var line in lines)
             {
-                var parts = line.Split(new[] { '|' }, 2);
+                var parts = line.Split(new[] { ':' }, 2);
                 var referenceParts = parts[0].Split(' ');
                 var book = referenceParts[0];
                 var chapterVerse = referenceParts[1].Split(':');
@@ -59,5 +59,12 @@ public class ScriptureLibrary
             Console.WriteLine($"An unexpected error occurred: {ex.Message}");
         }
 
+    }
+
+    public Scripture GetRandomScripture()
+    {
+        var random = new Random();
+
+        return _scriptures[random.Next(0, _scriptures.Count)];
     }
 }
