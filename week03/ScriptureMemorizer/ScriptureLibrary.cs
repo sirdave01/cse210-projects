@@ -15,6 +15,8 @@ public class ScriptureLibrary
     public ScriptureLibrary()
     {
         _scriptures = new List<Scripture>();
+
+        LoadScripturesFromFile("Scriptures.txt"); //this line to load scriptures from a file at initialization
     }
 
     public void LoadScripturesFromFile(string filePath)
