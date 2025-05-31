@@ -12,35 +12,70 @@ class Program
         Console.WriteLine("Welcome to the Scripture Memorizer!");
 
         var library = new ScriptureLibrary();
+
         library.LoadScripturesFromFile("Scriptures.txt"); // Path to the scripture file
-        var scripture = library.GetRandomScripture();
 
-        Console.WriteLine(scripture.GetScriptureText());
+        var currentScripture = library.GetRandomScripture();
 
-        while (true)
+        if (currentScripture != null)
         {
-            Console.WriteLine("\nPress Enter to hide a word, type 'quit' to exit:");
-            var input = Console.ReadLine();
+            Console.WriteLine(currentScripture.GetScriptureText());
 
-            if (input.ToLower() == "quit")
+            while (true)
             {
-                break;
+                Console.WriteLine("\nPress Enter to hide a word, type 'quit' to exit:");
+                var input = Console.ReadLine();
+
+                if (input.ToLower() == "quit")
+                {
+                    break;
+                }
+
+                Console.Clear();
+
+                currentScripture.HideRandomWords(3); // Hide three random words
+
+                Console.WriteLine(currentScripture.GetScriptureText());
+
+                if (currentScripture.IsCompletelyHidden())
+                {
+                    Console.WriteLine("Congratulations! You have memorized the scripture.");
+                    break;
+                }
             }
 
-            Console.Clear();
-
-            scripture.HideRandomWord(3); // Hide three random words
-
-            Console.WriteLine(scripture.GetScriptureText());
-
-            if (scripture.IsCompletelyHidden())
-            {
-                Console.WriteLine("Congratulations! You have memorized the scripture.");
-                break;
-            }
+            Console.WriteLine("All words are hidden. You have successfully memorized the scripture!");
         }
 
-        Console.WriteLine("Thank you for using the Scripture Memorizer!");
-    }
+        //     var scripture = library.GetRandomScripture();
 
+        //     Console.WriteLine(scripture.GetScriptureText());
+
+        //     while (true)
+        //     {
+        //         Console.WriteLine("\nPress Enter to hide a word, type 'quit' to exit:");
+        //         var input = Console.ReadLine();
+
+        //         if (input.ToLower() == "quit")
+        //         {
+        //             break;
+        //         }
+
+        //         Console.Clear();
+
+        //         scripture.HideRandomWord(3); // Hide three random words
+
+        //         Console.WriteLine(scripture.GetScriptureText());
+
+        //         if (scripture.IsCompletelyHidden())
+        //         {
+        //             Console.WriteLine("Congratulations! You have memorized the scripture.");
+        //             break;
+        //         }
+        //     }
+
+        //     Console.WriteLine("Thank you for using the Scripture Memorizer!");
+        // }
+
+    }
 }

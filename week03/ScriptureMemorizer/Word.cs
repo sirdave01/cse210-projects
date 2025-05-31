@@ -28,6 +28,11 @@ public class Word
         _isHidden = true; // Set the word to hidden
     }
 
+    public bool IsHidden()
+    {
+        return _isHidden; // Return the hidden status of the word
+    }
+    
     // calling the display text method
 
     public string GetWordText()
@@ -43,8 +48,5 @@ public class Word
     }
 
     // Calling the method to check if the word is hidden
-    public bool IsHidden()
-    {
-        return _isHidden; // Return the hidden status of the word
-    }
+
 }
