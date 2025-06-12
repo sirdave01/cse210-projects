@@ -51,8 +51,12 @@ namespace Mindfulness
         public void RunReflectingActivity()
         {
             StartReflectingActivity();
+            GetDuration();
+            GetReflectingSpinner();
             // Simulate the reflection activity for the specified duration
-            System.Threading.Thread.Sleep(GetDuration() * 1000);
+            System.Threading.Thread.Sleep(GetDuration() * 250);
+            Console.WriteLine();
+            DisplayReflectionQuestion();
             EndReflectingActivity();
         }
 
@@ -72,6 +76,7 @@ namespace Mindfulness
             string question = GetRandomReflectionQuestion();
             Console.WriteLine($"Reflection Question: {question}");
             Console.WriteLine("Take a moment to think about your answer.");
+            Console.ReadLine();
         }
 
         //method to get random prompt
@@ -87,6 +92,21 @@ namespace Mindfulness
         {
             Console.WriteLine($"Prompt: {GetRandomPrompt()}");
             Console.WriteLine("Reflect on this prompt and think about your thoughts and feelings.");
+        }
+
+        public void GetReflectingSpinner()
+        {
+            Console.Write(".");
+            System.Threading.Thread.Sleep(250); // Sleep for 0.25 second
+            Console.Write("\b"); // Backspace to overwrite the dot
+            Console.Write("-"); // Print a space to clear the dot
+            System.Threading.Thread.Sleep(250); // Sleep for 0.25 second
+            Console.Write("\b"); // Backspace again to return to the same position
+            Console.Write("|"); // Print the spinner character
+            System.Threading.Thread.Sleep(250); // Sleep for 0.25 second
+            Console.Write("\b"); // Backspace to overwrite the spinner character
+            Console.Write("//"); // Print the next spinner character
+            System.Threading.Thread.Sleep(250); // Sleep for 0.25 second
         }
     }
 }

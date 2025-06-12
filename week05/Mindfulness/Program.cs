@@ -31,22 +31,21 @@ class Program
                     Console.WriteLine("How long would you like to do the breathing activity? (in seconds)");
                     Console.ReadLine();
                     breathingActivity.RunBreathingActivity();
-                    breathingActivity.DisplayBreathingAnimation();
+                    // breathingActivity.DisplayBreathingAnimation();
                     break;
                 case "2":
-                    listingActivity.StartListingActivity();
-                    listingActivity.DisplayRandomPrompt();
+                    // listingActivity.StartListingActivity();
+                    // listingActivity.DisplayRandomPrompt();
+                    listingActivity.RunListingActivity();
                     // Simulate adding items
-                    listingActivity.AddItem("Item 1");
-                    listingActivity.AddItem("Item 2");
+                    // listingActivity.AddItem("Item 1");
+                    // listingActivity.AddItem("Item 2");
                     listingActivity.EndListingActivity();
                     break;
                 case "3":
-                    reflectingActivity.StartReflectingActivity();
-                    reflectingActivity.DisplayReflectionQuestion();
-                    // Simulate reflection
-                    System.Threading.Thread.Sleep(reflectingActivity.GetDuration() * 1000);
-                    reflectingActivity.EndReflectingActivity();
+                    // reflectingActivity.StartReflectingActivity();
+
+                    reflectingActivity.RunReflectingActivity();
                     break;
                 case "4":
                     return;

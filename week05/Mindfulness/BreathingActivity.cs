@@ -29,6 +29,7 @@ namespace Mindfulness
         public void RunBreathingActivity()
         {
             StartBreathingActivity();
+            DisplayBreathingAnimation();
             // Simulate the breathing activity for the specified duration
             System.Threading.Thread.Sleep(GetDuration() * 1000);
             EndBreathingActivity();
