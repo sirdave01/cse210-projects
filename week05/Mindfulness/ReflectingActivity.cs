@@ -98,15 +98,8 @@ namespace Mindfulness
         {
             Console.Write(".");
             System.Threading.Thread.Sleep(250); // Sleep for 0.25 second
-            Console.Write("\b"); // Backspace to overwrite the dot
+            Console.Write("\b \b"); // Backspace to overwrite the dot
             Console.Write("-"); // Print a space to clear the dot
-            System.Threading.Thread.Sleep(250); // Sleep for 0.25 second
-            Console.Write("\b"); // Backspace again to return to the same position
-            Console.Write("|"); // Print the spinner character
-            System.Threading.Thread.Sleep(250); // Sleep for 0.25 second
-            Console.Write("\b"); // Backspace to overwrite the spinner character
-            Console.Write("//"); // Print the next spinner character
-            System.Threading.Thread.Sleep(250); // Sleep for 0.25 second
         }
     }
 }
