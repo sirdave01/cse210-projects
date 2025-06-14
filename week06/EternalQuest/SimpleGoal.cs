@@ -28,6 +28,11 @@ namespace EternalQuest
 
         public SimpleGoal(string name, string description, int points) : base(name, description, points)
         {
+            name = "Simple Goal"; // setting the name of the goal to "Simple Goal"
+            description = "A simple goal to achieve."; // setting a default description for the goal
+            points = 10; // setting a default point value for the goal
+            
+            // initializing the _isComplete field to false
             _isComplete = false; // initializing the _isComplete field to false
         }
 

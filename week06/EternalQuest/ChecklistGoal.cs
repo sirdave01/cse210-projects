@@ -34,6 +34,10 @@ namespace EternalQuest
         public ChecklistGoal(string name, string description, int points, int targetAmount, int bonusPoints)
             : base(name, description, points)
         {
+            name = "Checklist Goal"; // setting the name of the goal to "Checklist Goal"
+            description = "A goal that consists of multiple sub-goals to be completed.";
+            points = 10; // setting a default point value for the goal
+            
             _amountCompleted = 0; // initializing the amount completed to 0
             _targetAmount = targetAmount; // setting the target amount for the checklist goal
             _bonusPoints = bonusPoints; // setting the bonus points for completing the checklist goal

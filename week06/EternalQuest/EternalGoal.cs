@@ -23,6 +23,12 @@ namespace EternalQuest
         //constructor to initialize the properties of the EternalGoal class
         public EternalGoal(string name, string description, int points) : base(name, description, points)
         {
+            // setting the name of the goal to "Eternal Goal"
+            ShortName = "Eternal Goal"; // setting the name of the goal to "Eternal Goal"
+            // setting a default description for the goal
+            Description = "An eternal goal that can be completed multiple times.";
+            // setting a default point value for the goal
+            Points = 10; // setting a default point value for the goal
         }
 
         // overriding the RecordEvent method from the Goal class

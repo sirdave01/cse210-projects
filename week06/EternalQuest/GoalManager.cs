@@ -63,7 +63,14 @@ namespace EternalQuest
 
         public void ListGoalNames()
         {
-            Console.WriteLine("List of Goals:");
+            // Console.WriteLine("List of Goals:");
+            // Console.WriteLine("1. Simple Goal");
+            // Console.WriteLine("2. Eternal Goal");
+            // Console.WriteLine("3. Checklist Goal");
+            // Console.WriteLine("4. Exit Goal Creation");
+            // Console.WriteLine();
+            // Console.Write("Enter the number of the goal type to create: ");
+            // string goalType = Console.ReadLine();
             foreach (var goal in _goals)
             {
                 Console.WriteLine($"- {goal.ShortName}");
@@ -75,7 +82,11 @@ namespace EternalQuest
 
         public void ListGoalDetails()
         {
-            Console.WriteLine("List of Goal Details:");
+            // Console.WriteLine("List of Goal Details:");
+            // Console.WriteLine("---------------------");
+            // Console.WriteLine("Simple Goal: A goal that can be completed once.");
+            // Console.WriteLine("Eternal Goal: A goal that can be completed multiple times.");
+            // Console.WriteLine("Checklist Goal: A goal that consists of multiple sub-goals to be completed.");
             foreach (var goal in _goals)
             {
                 Console.WriteLine(goal.GetStringRepresentation());
@@ -87,15 +98,7 @@ namespace EternalQuest
 
         public void CreateGoal()
         {
-            Console.WriteLine("Choose the type of goal to create:");
-            Console.WriteLine("\nAvailable Goal Types:");
-            Console.WriteLine("\n---------------------");
-            Console.WriteLine("0. Exit Goal Creation\n");
-            Console.WriteLine("1. Simple Goal\n");
-            Console.WriteLine("2. Eternal Goal\n");
-            Console.WriteLine("3. Checklist Goal\n");
-            Console.Write("Enter the number of the goal type: ");
-            string choice = Console.ReadLine();
+            
         }
 
         // method to create a void RemoveGoal
@@ -306,12 +309,94 @@ namespace EternalQuest
                         break;
                     case "list":
                         ListGoalNames();
+                        Console.WriteLine();
+                        Console.WriteLine("1. Simple Goal");
+                        Console.WriteLine("2. Eternal Goal");
+                        Console.WriteLine("3. Checklist Goal");
+                        Console.WriteLine("4. Exit Goal Creation");
+                        Console.WriteLine();
                         break;
                     case "details":
                         ListGoalDetails();
+                        Console.WriteLine();
+                        Console.WriteLine("List of Goal Details:");
+                        Console.WriteLine("---------------------");
+                        Console.WriteLine("Simple Goal: A goal that can be completed once.");
+                        Console.WriteLine("Eternal Goal: A goal that can be completed multiple times.");
+                        Console.WriteLine("Checklist Goal: A goal that consists of multiple sub-goals to be completed.");
                         break;
                     case "create":
                         CreateGoal();
+                        Console.WriteLine();
+                        Console.WriteLine("Choose the type of goal to create:");
+                        Console.WriteLine("\nAvailable Goal Types:");
+                        Console.WriteLine("\n---------------------");
+                        Console.WriteLine("0. Exit Goal Creation\n");
+                        Console.WriteLine("1. Simple Goal\n");
+                        Console.WriteLine("2. Eternal Goal\n");
+                        Console.WriteLine("3. Checklist Goal\n");
+                        Console.Write("Enter the number of the goal type to create: ");
+                        string choice = Console.ReadLine();
+                        switch (choice)
+                        {
+                            case "1":
+                                Console.Write("Enter the name of the Simple Goal: ");
+                                string simpleGoalName = Console.ReadLine();
+                                Console.Write("Enter the description of the Simple Goal: ");
+                                string simpleGoalDescription = Console.ReadLine();
+                                Console.Write("Enter the points for the Simple Goal: ");
+                                int simpleGoalPoints;
+                                while (!int.TryParse(Console.ReadLine(), out simpleGoalPoints) || simpleGoalPoints < 0)
+                                {
+                                    Console.Write("Invalid input. Please enter a valid number for points: ");
+                                }
+                                _goals.Add(new SimpleGoal(simpleGoalName, simpleGoalDescription, simpleGoalPoints));
+                                Console.WriteLine($"Simple Goal '{simpleGoalName}' created successfully!");
+                                break;
+                            case "2":
+                                Console.Write("Enter the name of the Eternal Goal: ");
+                                string eternalGoalName = Console.ReadLine();
+                                Console.Write("Enter the description of the Eternal Goal: ");
+                                string eternalGoalDescription = Console.ReadLine();
+                                Console.Write("Enter the points for the Eternal Goal: ");
+                                int eternalGoalPoints;
+                                while (!int.TryParse(Console.ReadLine(), out eternalGoalPoints) || eternalGoalPoints < 0)
+                                {
+                                    Console.Write("Invalid input. Please enter a valid number for points: ");
+                                }
+                                _goals.Add(new EternalGoal(eternalGoalName, eternalGoalDescription, eternalGoalPoints));
+                                Console.WriteLine($"Eternal Goal '{eternalGoalName}' created successfully!");
+                                break;
+                            case "3":
+                                Console.Write("Enter the name of the Checklist Goal: ");
+                                string checklistGoalName = Console.ReadLine();
+                                Console.Write("Enter the description of the Checklist Goal: ");
+                                string checklistGoalDescription = Console.ReadLine();
+                                Console.Write("Enter the points for the Checklist Goal: ");
+                                int checklistGoalPoints;
+                                while (!int.TryParse(Console.ReadLine(), out checklistGoalPoints) || checklistGoalPoints < 0)
+                                {
+                                    Console.Write("Invalid input. Please enter a valid number for points: ");
+                                }
+                                Console.Write("Enter the target amount for the Checklist Goal: ");
+                                int targetAmount;
+                                while (!int.TryParse(Console.ReadLine(), out targetAmount) || targetAmount <= 0)
+                                {
+                                    Console.Write("Invalid input. Please enter a valid positive number for target amount: ");
+                                }
+                                Console.Write("Enter the bonus points for completing the Checklist Goal: ");
+                                int bonusPoints;
+                                while (!int.TryParse(Console.ReadLine(), out bonusPoints) || bonusPoints < 0)
+                                {
+                                    Console.Write("Invalid input. Please enter a valid number for bonus points: ");
+                                }
+                                _goals.Add(new ChecklistGoal(checklistGoalName, checklistGoalDescription, checklistGoalPoints, targetAmount, bonusPoints));
+                                Console.WriteLine($"Checklist Goal '{checklistGoalName}' created successfully!");
+                                break;
+                            case "0":
+                                Console.WriteLine("Exiting goal creation.");
+                                break;
+                        }
                         break;
                     case "remove":
                         RemoveGoal();
