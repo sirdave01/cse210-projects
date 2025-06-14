@@ -1,9 +1,17 @@
 using System;
 
-class Program
+//decalring the namespace EternalQuest
+namespace EternalQuest
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Hello World! This is the EternalQuest Project.");
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World! This is the EternalQuest Project.\n");
+
+            //runing the GoalManger class to manage the goals in the game
+            GoalManager goalManager = new GoalManager();
+            goalManager.Run();
+        }
     }
 }
